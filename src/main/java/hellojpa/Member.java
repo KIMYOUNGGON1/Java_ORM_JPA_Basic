@@ -42,4 +42,14 @@ public class Member {
     public void setTeam(Team team) {
         this.team = team;
     }
+
+    /**
+     * 연관관계 편의 메소드
+     * 양쪽에 연관관계 편의 메소드가 모두 있는 경우 문제를 일으킬 수 있기 때문에
+     * 한쪽은 제거할 것.
+     */
+//    public void changeTeam(Team team) {
+//        this.team = team;
+//        team.getMembers().add(this);
+//    }
 }
