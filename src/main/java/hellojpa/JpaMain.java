@@ -32,13 +32,12 @@ public class JpaMain {
             em.clear();
 
             Member findMember = em.find(Member.class, member.getId());
+            List<Member> members = findMember.getTeam().getMembers();
 
-            Team findTeam = findMember.getTeam();
-            System.out.println("findTeam = " + findTeam.getName());
+            for (Member m : members) {
+                System.out.println("m = " + m.getUsername());
+            }
 
-            // DB에 100 ID를 가진 데이터가 있다는 가정하에.
-            Team newTeam = em.find(Team.class, 100L);
-            findMember.setTeam(newTeam);
 
             tx.commit();
         } catch (Exception e) {
