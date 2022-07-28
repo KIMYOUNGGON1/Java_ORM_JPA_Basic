@@ -18,26 +18,27 @@ public class JpaMain {
 
         try {
 
-            Member member1 = new Member();
-            member1.setUsername("A");
+            //저장
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
 
-            Member member2 = new Member();
-            member2.setUsername("B");
+            Member member = new Member();
+            member.setUsername("member1");
+            member.setTeam(team);
+            em.persist(member);
 
-            Member member3 = new Member();
-            member3.setUsername("C");
+            em.flush();
+            em.clear();
 
-            System.out.println("=================");
+            Member findMember = em.find(Member.class, member.getId());
 
-            em.persist(member1); //1, 51(더미 호출)
-            em.persist(member2); // DB 직접 호출 x, Memory에서 호출
-            em.persist(member3); // DB 직접 호출 x, Memory에서 호출
+            Team findTeam = findMember.getTeam();
+            System.out.println("findTeam = " + findTeam.getName());
 
-            System.out.println("member1.getId = " + member1.getId());
-            System.out.println("member2.getId = " + member2.getId());
-            System.out.println("member3.getId = " + member3.getId());
-
-            System.out.println("=================");
+            // DB에 100 ID를 가진 데이터가 있다는 가정하에.
+            Team newTeam = em.find(Team.class, 100L);
+            findMember.setTeam(newTeam);
 
             tx.commit();
         } catch (Exception e) {
