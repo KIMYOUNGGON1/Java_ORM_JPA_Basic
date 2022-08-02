@@ -15,8 +15,9 @@ public class Member extends BaseEntity{
     @Column(name = "USERNAME")
     private String username;
 
-    @ManyToOne
-    @JoinColumn(name = "TEAM_ID", insertable = false, updatable = false)
+    // EAGER(즉시 로딩) 보다는 LAZY(지연 로딩)을 사용하는 것을 권장한다.
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn()
     private Team team;
 
     public Long getId() {
