@@ -12,3 +12,7 @@ Q
 !src/main/java/hellojpa/Album.java,d\5\d51633f288f6c9e54960bf8cc2765c46f749ce95
 Q
 !src/main/java/hellojpa/Movie.java,5\d\5d01fa8f7a9d9e79f69c3c4484557bbb877c2f6f
+R
+"src/main/java/hellojpa/Parent.java,4\4\44edf2283231ef941ed7d9f231ed01b376d49e57
+Q
+!src/main/java/hellojpa/Child.java,4\8\48d6c9fed6f1a2e54a6a3560ffb4d0f8d7b9aa18
